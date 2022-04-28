@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="../../js/react.development.js"></script>
+    <script src="../../js/react-dom.development.js"></script>
+    <script src="../../js/babel.min.js"></script>
+
+    <script type="text/babel">
+      // 数据存储
+      let data = ["Angular", "React", "Vue"];
+      let domText = (
+        <div>
+          <h1>前端js框架列表</h1>
+          <ul>
+            {
+              data.map(item=><li key={item}>{item}</li>)
+            }  
+          </ul>
+        </div>
+      );
+
+      ReactDOM.render(domText, document.getElementById("root"));
+    </script>
+  </body>
+</html>
