@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="../../js/react.development.js"></script>
+    <script src="../../js/react-dom.development.js"></script>
+    <script src="../../js/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+      1.定义虚拟DOM时，不要写引号
+      2.标签中混入js表达式时要用{}
+      3.样式的类名不要用class，要用className
+      4.内联样式，需用style={{ color: "pink" }}的形式
+      5.一个根标签
+      6.标签必须闭合
+       */
+      let text = "React温故";
+      let Nclass = "title";
+      let domText = (
+        <div>
+          <h2 className={Nclass}>
+            <span style={{ color: "pink" }}>{text}</span>
+          </h2>
+          <input type="text" />
+        </div>
+      );
+
+      ReactDOM.render(domText, document.getElementById("root"));
+    </script>
+  </body>
+</html>
