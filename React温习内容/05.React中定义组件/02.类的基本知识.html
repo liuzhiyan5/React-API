@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Person {
+        // 需要在constructor接受传值
+        constructor(name, age) {
+          // this指向的是实例对象
+          this.name = name;
+          this.age = age;
+        }
+
+        // 存在在类的原型对象中
+        speak() {
+          // 谁调用，this就指向谁
+          console.log(`名字：${this.name}，年龄：${this.age}`);
+        }
+      }
+
+      class Student extends Person {
+        // 继承了Person的constructor，因此可以接受传值，所以在这种情况下可以不需要定义constructor
+        // 但如果多传入了一个值，那么当然是无法显示在实例对象上的
+        constructor(name, age, sex) {
+          // 代码冗杂重复了
+          // this.name = name;
+          // this.age = age;
+          // 可以使用super()，传值，使用Person中的constructor
+          super(name, age);
+          this.sex = sex;
+        }
+
+        // 如果觉得不好可以对方法进行重写
+        speak() {
+          console.log(
+            `名字：${this.name}，年龄：${this.age}，性别：${this.sex}`
+          );
+        }
+      }
+
+      let person = new Person("曹操", 2000);
+      let student = new Student("刘备", 2000, "男");
+
+      // 根据speak的调用，决定this是谁
+      person.speak();
+      student.speak();
+    </script>
+  </body>
+</html>
